@@ -138,7 +138,6 @@ GEM
       rb-inotify (>= 0.9)
       rb-kqueue (>= 0.2)
     lumberjack (1.0.4)
-    machinist (2.0)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -266,7 +265,6 @@ DEPENDENCIES
   hub
   jquery-rails
   launchy
-  machinist
   mysql2
   quiet_assets
   rails (= 3.2.13)
