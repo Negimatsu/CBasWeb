@@ -21,7 +21,8 @@ html
             .span12
               = render 'layouts/messages'
               .progress.progress-striped.active
-                .bar style = 'width: 45%'
+                - testValue = 30
+                .bar style = 'width: #{testValue}%'
               = yield
           footer
       /! ! end of .container
