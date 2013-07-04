@@ -2,14 +2,15 @@ doctype html
 html
   head
     meta content="width=device-width, initial-scale=1.0" name="viewport" 
-      title= content_for?(:title) ? yield(:title) : "Cbaswebrvm"
-      meta content=(content_for?(:description) ? yield(:description) : "Cbaswebrvm") name="description" 
+      title= content_for?(:title) ? yield(:title) : "cBas Web"
+      meta content=(content_for?(:description) ? yield(:description) : "cBasWeb") name="description"
         = stylesheet_link_tag "application", :media => "all"
         = javascript_include_tag "application"
         = csrf_meta_tags
         = yield(:head)
+
   body class=("#{controller_name} #{action_name}") 
-    .navbar.navbar-fixed-top
+    .navbar.navbar-fixed-top.navbar-inverse
       nav.navbar-inner
         .container
           = render 'layouts/navigation'
@@ -19,6 +20,8 @@ html
           .row
             .span12
               = render 'layouts/messages'
+              .progress.progress-striped.active
+                .bar style = 'width: 45%'
               = yield
           footer
       /! ! end of .container
