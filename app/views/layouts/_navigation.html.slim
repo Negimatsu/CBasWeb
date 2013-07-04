@@ -1,5 +1,11 @@
 = link_to "Cbaswebrvm", root_path, :class => 'brand'
-ul.nav
+ul.nav.menu.pull-right
+  li
+    = link_to 'Home'
+  li
+    = link_to 'Manual'
+  li
+    = link_to 'Program'
   - if user_signed_in?
     li
       = link_to 'Logout', destroy_user_session_path, :method=>'delete'
@@ -15,3 +21,11 @@ ul.nav
   - else
     li
       = link_to 'Sign up', new_user_registration_path
+
+  .btn-group
+    = link_to "sighn",users_path, :class => 'btn btn-default btn-info'
+    = link_to "sighn",users_path, :class => 'btn btn-default'
+
+
+
+
