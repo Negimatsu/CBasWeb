@@ -20,10 +20,16 @@ html
           .row
             .span12
               = render 'layouts/messages'
-              .progress.progress-striped.active
-                - testValue = 40
-                .bar style = 'width: #{testValue}%'
+              /.progress.progress-striped.active
+              /  - testValue = 40
+              /  .bar style = 'width: #{testValue}%'
               = yield
-          footer
+      footer  style = 'color: #F0F0F0'
+        center
+          .content style = 'background-color: #000000'
+            h5 Kasetsart University, Faculty of science
+            p Department of Computer science & Genetics
+            p 50 Ngam Wong Wan Rd, Lat Yao Chatuchak Bangkok 10900
+
       /! ! end of .container
     /! ! end of #main

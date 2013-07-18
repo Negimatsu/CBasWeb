@@ -1,30 +1,35 @@
-= link_to "Cbaswebrvm", root_path, :class => 'brand'
-ul.nav.menu.pull-right
+= link_to (image_tag("CBas-icon.png")) , root_path
+
+ul.nav.pull-right
   li
-    = link_to 'Home'
+    = link_to 'Home',root_path
   li
-    = link_to 'Manual'
+    = link_to  'Manual',manual_manual_path
   li
     = link_to 'Program'
+  li
+    = link_to 'Contact', contact_index_path
+
+
   - if user_signed_in?
     li
-      = link_to 'Logout', destroy_user_session_path, :method=>'delete'
-  - else
-    li
-      = link_to 'Login', new_user_session_path
-  - if user_signed_in?
-    li
-      = link_to 'Edit account', edit_user_registration_path
+       = link_to 'Process'
+
+
     - if current_user.has_role? :admin
       li
         = link_to 'Admin', users_path
-  - else
-    li
-      = link_to 'Sign up', new_user_registration_path
+    .btn-group
+       = link_to current_user.name, edit_user_registration_path, :class => 'btn btn-default btn-info'
+       = link_to "logout",destroy_user_session_path, :method=>'delete', :class => 'btn btn-default'
 
-  .btn-group
-    = link_to "sighn",users_path, :class => 'btn btn-default btn-info'
-    = link_to "sighn",users_path, :class => 'btn btn-default'
+
+  - else
+    .btn-group
+        = link_to "login",users_path, :class => 'btn btn-default btn-info'
+        = link_to "sign up",new_user_registration_path, :class => 'btn btn-default'
+
+
 
 
 

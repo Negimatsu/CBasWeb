@@ -1,4 +1,8 @@
 CBasWebRVM::Application.routes.draw do
+  get "contact/index"
+
+  get "manual/manual"
+
   authenticated :user do
     root :to => 'home#index'
   end

@@ -17,6 +17,7 @@ gem 'rolify'
 gem 'simple_form'
 gem 'slim'
 group :development do
+  gem 'mailcatcher'
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :rbx]
   gem 'guard-bundler'
