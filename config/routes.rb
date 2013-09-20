@@ -1,6 +1,6 @@
 CBasWebRVM::Application.routes.draw do
 
-  match "manual" =>"static#manual"
+  match "manual" =>"static#document"
   match "contact" => "static#contact"
 
   authenticated :user do

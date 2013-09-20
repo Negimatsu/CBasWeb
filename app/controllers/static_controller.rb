@@ -1,5 +1,5 @@
 class StaticController < ApplicationController
-  def manual
+  def document
 
   end
 
