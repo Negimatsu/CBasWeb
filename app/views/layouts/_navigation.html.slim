@@ -6,7 +6,7 @@ ul.nav.pull-right.nav-home
   li
     = link_to  'Manual',manual_path
   li
-    = link_to 'Program'
+    = link_to 'Program' , program_path
   li
     = link_to 'Contact', contact_path
 
@@ -26,8 +26,8 @@ ul.nav.pull-right.nav-home
 
   - else
     .btn-group
-      = link_to "login",users_path, :class => 'btn btn-default btn-info'
-      = link_to "sign up",new_user_registration_path, :class => 'btn btn-default'
+      = link_to "Sign in",users_path, :class => 'btn btn-default btn-info'
+      = link_to "Sign up",new_user_registration_path, :class => 'btn btn-default'
 
 
 

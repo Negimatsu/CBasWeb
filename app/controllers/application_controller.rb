@@ -5,4 +5,12 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, :alert => exception.message
   end
 
+  def after_sign_in_path_for(resource)
+    if current_user.has_role? :admin
+      users_path
+    else
+      program_path
+    end
+  end
+
 end

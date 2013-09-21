@@ -2,7 +2,8 @@ h2 Sign up
 = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-vertical' }) do |f|
   = f.error_notification
   = display_base_errors resource
-  = f.input :name, :autofocus => true
+  = f.simple_fields_for :profile_attributes do |profile_form|
+    = profile_form.input :first_name , :autofocus => true ,:required => false
   = f.input :email, :required => true
   = f.input :password, :required => true
   = f.input :password_confirmation, :required => true
