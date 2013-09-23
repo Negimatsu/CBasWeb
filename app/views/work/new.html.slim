@@ -1,0 +1,21 @@
+h1 Program
+.row.in-program
+  .span4
+    .quota
+      h3 Your work Quota 3/5
+      p Finish lastest :
+      = @last.title
+      p Finish date :
+      = @last.finish_date
+
+  .span6
+    h2 Upload
+    = simple_form_for @work ,url: {action: "create"} ,:html => {:multipart => true} do |f|
+      = f.error_notification
+      = f.input :title ,hint: 'You cannot change your username.' ,:required =>true
+      = f.input :filename ,:as=>'file' ,:label => 'File fasta:' ,:required => false
+      = f.input :description ,:label=>'Description',:as=>'text',:input_html => { :cols => 100, :rows => 3 },:required => false
+
+      = f.button :submit, 'Upload', :class => 'btn-primary'
+
+

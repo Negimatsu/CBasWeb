@@ -1,0 +1,18 @@
+h1 Program
+.row.in-program
+  .span4
+    .quota
+      h3 Your work Quota 3/5
+      p Finish lastest :
+      = @works.last
+      p Finish date :
+      - @works.each do |work|
+        = work.finish_date
+  .span6
+    h2 Upload
+    = form_for @works, :html => {:multipart => true} do |f|
+      = image_tag(@user.avatar_url) if @user.avatar?
+      = f.file_field :avatar
+      = f.hidden_field :avatar_cache
+
+
