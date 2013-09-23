@@ -1,16 +1,71 @@
+.document
 h3 Documents
 
 .row
-  .span3
-    .table.tabs-left
-      ul.nav.nav-tabs.nav-stacked.affix
-        li
-          a How to use
-        li
-          a How to work
-        li
-          a customize
 
-  .tab-content
-    p aaa
+  .span3 id="navbar-doctab"
+    .table.tabs-left
+      ul.nav.nav-tabs.nav-stacked.affix.nav-list
+        li
+          a href="#use" How to use
+        li
+          a href="#work" How to work
+        li
+          a href="#customize" Customize
+
+
+
+  .span8 data-spy="scroll" data-target="#navbar-doctab"
+    .tab-content
+      h3 id="use" class="box"
+        |Prosess Flow
+        = image_tag "flow3.png"
+
+
+      h3.Explanation id="work" class="box"
+        | Explanation
+        p You must use file FASTA format for this program.
+        ul
+          li Header line : greater-than (">") symbol in the first column.
+          | The word following the ">" symbol is gene name. <br>
+          | The rest of the line is the description.
+          li Followed lines is sequence data of nucleotide.
+
+
+        h3 Fasta Format Example
+
+        .fastaformat
+          p >adk-1
+          | GCTTGGTAGTAGTCCACTAATGGTTTCGTGGTGGAGTGATACACTTTTAAGCGATCTAAT <br>
+          | ACAGTTTCAGGTTTATCATCGGCACGGATGATTAAGTCTTCGCCAGTCACGTCATCTTTC <br>
+          | CCTTCTACTTTTGGTGGGTTGTAAACGACGTGATAAGTACGACCTGAGGCTTGGTGTACA <br>
+          | CGGCGACCACTCATACGTTCTACGATCACTTCATCAGGCACATCAAACTCTAAAACGTAG <br>
+          | TCAATTTGGATACCGACTGTTTTTAACGCATCCGCTTGTGGAATGGTGCGTGGGAAGCCG <br>
+          | TCTAATAAGAAACCTTTGGCACAATCGGCTTGTGCAACACGTTCTTTCACTAATGAAATG <br>
+          | ATTAAATCATCTGGCACTAATTGACCCGCATCCATTAAGGTTTTTGCTTGTTTACCTAAG <br>
+          | TCTGTCCCTGCTTTGATTGCACCACGCAACATATCACCCGTTGAAA               <br>
+
+          p >adk-2                                                       <br>
+          | GCTTGGTAGTAGTCCACTAATGGCTTCGTGGTGGAGTGATACACTTTTAAGCGATCTAAT <br>
+          | ACAGTTTCAGGTTTATCATCGGCACGGATGATTAAGTTTTCGCCAGTCACGTCATCTTTC <br>
+          | CCTTCTACTTTTGGTGGGTTGTAAACGACGTGATAAGTACGACCTGAGGCTTGGTGTACA <br>
+          | CGGCGACCACTCATACGTTCTACGATCACTTCATCAGGCACATCAAACTCTAAAACGTAG <br>
+          | TCAATTTGGATACCGACTGTTTTTAACGCATCCGCTTGTGGAATAGTGCGTGGGAAGCCG <br>
+          | TCTAATAAGAAACCTTTGGCACAATCGGCTTGTGCAACACGTTCTTTCACTAATGAAATG <br>
+          | ATTAAATCATCTGGCACTAATTGACCCGCATCCATTAAGGTTTTTGCTTGTTTACCTAAG <br>
+          | TCTGTCCCTGCTTTGATTGCACCACGCAACATATCACCCGTTGAAA               <br>
+
+
+          h3.Explanation Download file fasta example
+          = link_to "Download"
+
+      h3.customize id="customize"
+        |Customize
+        p You can coutomize another option by choose ...
+
+
+
+
+
+
 

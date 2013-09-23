@@ -13,4 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require bootstrap-scrollspy
 //= require_tree .
+
+//$('#navbar-doctab').scrollspy({
+//    offset: 10
+//});
+
+$('body').scrollspy({
+    target: "navbar-doctab"
+});
