@@ -2,37 +2,32 @@
 h3 Documents
 
 .row
-
-  .span3 id="navbar-doctab"
+  .span3
     .table.tabs-left
-      ul.nav.nav-tabs.nav-stacked.affix.nav-list
+      ul.nav.nav-tabs.nav-stacked.affix.nav-list id="navbar-documentlist"
         li
-          a href="#use" How to use
+          a.doctab href="#use" How to use
         li
-          a href="#work" How to work
+          a.doctab href="#work" How to work
         li
-          a href="#customize" Customize
+          a.doctab href="#customize" Customize
 
 
 
-  .span8 data-spy="scroll" data-target="#navbar-doctab"
+  .span8 data-spy="scroll" data-target="#navbar-documentlist"
     .tab-content
-      h3 id="use" class="box"
-        |Prosess Flow
-        = image_tag "flow3.png"
-
-
-      h3.Explanation id="work" class="box"
-        | Explanation
-        p You must use file FASTA format for this program.
-        ul
+      h3 id="use"
+        h2 How to use
+        p You must use file FASTA format for this program. <br>
+        ul.Explanation
           li Header line : greater-than (">") symbol in the first column.
-          | The word following the ">" symbol is gene name. <br>
-          | The rest of the line is the description.
+          | The word following the ">" symbol is gene name.
+          | The rest of the line is the description. <br>
           li Followed lines is sequence data of nucleotide.
+        a href="http://fasta.bioch.virginia.edu/fasta_www2/fasta_list2.shtml" title='fasta.bioch.virginia.edu' What is fasta
 
 
-        h3 Fasta Format Example
+        h4 Fasta Format Example
 
         .fastaformat
           p >adk-1
@@ -56,16 +51,13 @@ h3 Documents
           | TCTGTCCCTGCTTTGATTGCACCACGCAACATATCACCCGTTGAAA               <br>
 
 
-          h3.Explanation Download file fasta example
-          = link_to "Download"
 
-      h3.customize id="customize"
+      = link_to "Download file fasta example", "/document/example.fasta"
+
+      h3.docmargin id="work"
+              |How to work : Prosess Flow
+              = image_tag "flow3.png"
+
+      h3.docmargin id="customize"
         |Customize
-        p You can coutomize another option by choose ...
-
-
-
-
-
-
-
+        p.customize You can coutomize another option by choose ...
