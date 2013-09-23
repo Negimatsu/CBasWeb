@@ -6,6 +6,7 @@ class CreateWorks < ActiveRecord::Migration
       t.string :status_work
       t.datetime :finish_date
       t.datetime :upload_date
+      t.boolean :is_bacteria , :default=>true
       t.string :filename
       t.belongs_to :user
 

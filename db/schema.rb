@@ -79,10 +79,11 @@ ActiveRecord::Schema.define(:version => 20130921082734) do
     t.string   "status_work"
     t.datetime "finish_date"
     t.datetime "upload_date"
+    t.boolean  "is_bacteria", :default => true
     t.string   "filename"
     t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
 end
