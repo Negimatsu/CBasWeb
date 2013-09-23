@@ -7,6 +7,7 @@ CBasWebRVM::Application.routes.draw do
   match "manual" =>"static#document"
   match "contact" => "static#contact"
   match "program" =>"work#new"
+  get "profile/:id" , to: 'users#show' ,as: 'profile'
 
   authenticated :user do
     root :to => 'home#index'
