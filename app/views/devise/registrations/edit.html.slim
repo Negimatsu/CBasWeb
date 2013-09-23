@@ -4,7 +4,7 @@ h2
   = f.error_notification
   = display_base_errors resource
 
-  = f.simple_fields_for resource.profile do |profile_form|
+  = f.simple_fields_for :profile  do |profile_form|
     = profile_form.input :first_name , :autofocus => true ,:required => false
     = profile_form.input :last_name  ,:required => false
     = profile_form.input :occupation ,:required => false
