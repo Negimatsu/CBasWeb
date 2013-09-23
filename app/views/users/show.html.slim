@@ -3,5 +3,7 @@ p
   | User: #{@user.name}
 p
   | Email: #{@user.email if @user.email}
+p
+  | firstname: #{@profile.first_name if @profile.first_name}
 
 = link_to "Edit Profile" , edit_user_registration_path , :class=>"btn btn-primary"
