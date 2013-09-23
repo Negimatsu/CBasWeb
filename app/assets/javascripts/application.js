@@ -21,5 +21,6 @@
 //});
 
 $('body').scrollspy({
-    target: "navbar-doctab"
+    target: "navbar-documentlist"
 });
+
