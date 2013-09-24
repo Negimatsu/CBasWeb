@@ -1,0 +1,21 @@
+h1 your finish
+
+table.table.table-striped.table-hover
+  thead
+    tr
+      th title
+      th status
+      th finish date
+      th progress
+      th result
+  tbody
+
+    tr
+      td = @work.title
+      td = @work.status_work
+      td = @work.finish_date
+      td
+        .progress.progress-striped.active
+          -a = 80
+          .bar style="width: #{a}%;" #{a}
+      td = link_to "result" , work_url(@work) ,:class=>"btn btn-info"
