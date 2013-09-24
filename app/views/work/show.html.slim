@@ -1,4 +1,36 @@
-p adfsdasaf
-= @work.title
-strong Text:
- = @work.text
+.each-work
+  h1 Your work
+  p <b>Title is:</b> #{@work.title}
+  p <b>Description:</b> #{@work.description}
+  p <b>Status:</b> #{@work.status_work}
+  p <b>Finish time:</b> #{@work.finish_date if @work.finish_date}
+  p <b>Upload time: </b> #{@work.created_at}
+
+  br
+  h4 Your Config
+  p <b>Is bacteria:</b> #{@work.is_bacteria}
+
+br
+  h4 Image Result
+  ul
+    li
+      p Phylogenetic Tree
+      /-if @work.file_dir_or_symlink_exists? @work.get_phylogeny
+      = image_tag @work.get_phylogeny, width: '600'
+      p
+        = link_to "Phylogenetic tree" , @work.get_phylogeny
+        = link_to "Cladogram file", @work.get_cladogram
+      /-else
+        p not have phylogenetic
+    li
+      p Burst Result (You should have jdk in your computer)
+      -if @work.file_dir_or_symlink_exists? @work.get_burst
+        = link_to "Burst file frome e-burst", @work.get_burst
+      -else
+        p Not have file burst
+
+  h4 Allelic Profile
+  -if @work.file_dir_or_symlink_exists? @work.get_allelic
+    = link_to "Allelic profile", @work.get_allelic
+  -else
+    p Not have allelic Profile

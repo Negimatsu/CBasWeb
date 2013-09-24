@@ -52,4 +52,5 @@ CBasWebRVM::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  Date::DATE_FORMATS[:default] = "%Y-%m-%d %H:%M"
 end

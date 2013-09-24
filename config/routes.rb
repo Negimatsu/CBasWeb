@@ -1,7 +1,11 @@
 CBasWebRVM::Application.routes.draw do
 
-  get "program/new"
+  get "process/finish"
+  get "process/going"
+  get "process/done"
+  get "process/fail"
 
+  get "program/new"
   get "program/create"
 
   match "manual" =>"static#document"

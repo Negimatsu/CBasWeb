@@ -18,6 +18,7 @@ gem 'simple_form'
 gem 'slim'
 gem 'carrierwave'
 gem 'rmagick'
+
 group :development do
   gem 'mailcatcher'
   gem 'better_errors'
