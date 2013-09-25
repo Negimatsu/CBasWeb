@@ -9,7 +9,7 @@ h1 Going on
         th ID
         th Title
         th Status
-        th Finish date
+        th Upload time
         th Progress
         th Result
     tbody
@@ -18,7 +18,7 @@ h1 Going on
           td = w.id
           td = w.title
           td = w.status_work
-          td = w.finish_date
+          td = w.created_at
           td
             .progress.progress-striped.active
               -a = w.get_percent

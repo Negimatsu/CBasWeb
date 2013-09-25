@@ -9,8 +9,9 @@ class WorkController < ApplicationController
     @user = current_user
     @work = @user.works.new
     @last = @user.works.last if @user.works.last
-    @works = @user.works
-    @count = @works.find_all_by_status_work("processing").count
+    @l_works = @user.works.find_all_by_status_work ["finish","fail"]
+    @l_work = @l_works.last
+    @count = @user.works.find_all_by_status_work("processing").count
     unless @count <=5
       flash[:error] = "You are processing program more than 5. Please wait."
     end

@@ -89,6 +89,10 @@ class Work < ActiveRecord::Base
     get_url_folder+'allelicProfile.txt'
   end
 
+  def get_error_file
+    get_url_folder+'err.txt'
+  end
+
   def file_dir_or_symlink_exists?(path_to_file)
     File.exist?(path_to_file) || File.symlink?(path_to_file)
   end

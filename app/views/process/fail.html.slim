@@ -20,6 +20,6 @@ h1 Fail Process
           td = w.status_work
           td = w.finish_date
           td
-            .progress.progress-striped.active
+            .progress
               .bar.bar-danger style="width: #{w.get_percent}%;" #{w.get_percent}
           td = link_to "error result" , work_url(w) ,:class=>"btn btn-danger"

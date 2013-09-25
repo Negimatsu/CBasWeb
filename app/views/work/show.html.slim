@@ -2,44 +2,85 @@
 .span8.each-work
   h1 Your work
   br
-  p <b>Work ID:</b> #{@work.id}
-  p <b>Title is:</b> #{@work.title}
-  p <b>Description:</b> #{@work.description}
-  p <b>Status:</b> #{@work.status_work}
-  p <b>Finish time:</b> #{@work.finish_date if @work.finish_date}
-  p <b>Upload time: </b> #{@work.created_at}
+  table
+    tr
+      td
+        b Work ID
+      td #{@work.id}
+    tr
+      td
+        b Title is
+      td #{@work.title}
+    tr
+      td
+        b Description
+      td #{@work.title}
+    tr
+      td
+        b Status
+      td #{@work.status_work}
+    tr
+      td
+        b Finish time
+      td.value #{@work.finish_date}
+    tr
+      td
+        b Upload time
+      td.value #{@work.created_at}
+    tr
+      td
+        b Progress
+      td
+        .progress.progress-striped
+          -a = @work.get_percent
+          - bar = "bar bar-success"
+          - button = "btn"
+          -if @work.status_work == "fail"
+            - bar = "bar bar-danger"
+            - button = "btn btn-danger"
+          div class=(bar) style="width: #{a}%;" #{a}
+
 
   br
   h4 Your Config
   p <b>Is bacteria:</b> #{@work.is_bacteria}
 
   br
-  h4 Image Result
-  ul
-    li
-      p Phylogenetic Tree
-      -if @work.file_dir_or_symlink_exists? @work.get_full_path+'treeprint.png'
-        = image_tag @work.get_phylogeny, width: '600' ,class:"image-work"
-        br
-        p
-          |Download :
-          = link_to "Phylogenetic tree" , @work.get_phylogeny
+
+  -unless @work.status_work == "processing"
+
+    h4 Image Result
+    ul
+      li
+        p Phylogenetic Tree
+        -if @work.file_dir_or_symlink_exists? @work.get_full_path+'treeprint.png'
+          = image_tag @work.get_phylogeny, width: '600' ,class:"image-work"
           br
+          p
+            |Download :
+            = link_to "Phylogenetic tree" , @work.get_phylogeny
+            br
+            | Download :
+            = link_to "Cladogram file", @work.get_cladogram
+        -else
+          p Not have phylogenetic
+      li
+        p Burst Result (You should have jdk in your computer)
+        -if @work.file_dir_or_symlink_exists? @work.get_full_path+'burstFromEburst.jnlp'
           | Download :
-          = link_to "Cladogram file", @work.get_cladogram
-      -else
-        p Not have phylogenetic
-    li
-      p Burst Result (You should have jdk in your computer)
-      -if @work.file_dir_or_symlink_exists? @work.get_full_path+'burstFromEburst.jnlp'
-        | Download :
-        = link_to "Burst file frome e-burst", @work.get_burst
-      -else
-        p Not have file burst
-  br
-  h4 Allelic Profile
-  -if @work.file_dir_or_symlink_exists? @work.get_full_path+'allelicProfile.txt'
-    | Download :
-    = link_to "Allelic profile", @work.get_allelic
-  -else
-    p Not have allelic Profile
+          = link_to "Burst file frome e-burst", @work.get_burst
+        -else
+          p Not have file burst
+    br
+
+    h4 Allelic Profile
+    -if @work.file_dir_or_symlink_exists? @work.get_full_path+'allelicProfile.txt'
+      | Download :
+      = link_to "Allelic profile", @work.get_allelic
+    -else
+      p Not have allelic Profile
+    br
+    h4 Error file
+
+    -if @work.file_dir_or_symlink_exists? @work.get_full_path+'err.txt'
+      = link_to "error_file", @work.get_error_file

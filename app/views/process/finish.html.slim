@@ -20,7 +20,7 @@ h1 your finish
         td = @work.status_work
         td = @work.finish_date
         td
-          .progress.progress-striped.active
+          .progress
             -a = @work.get_percent
             - bar = "bar bar-success"
             - button = "btn"
