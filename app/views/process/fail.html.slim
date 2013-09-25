@@ -1,25 +1,25 @@
 h1 Fail Process
 .span2
   = render 'shared/nav_process'
-
-.span9
-  table.table.table-striped.table-hover
-    thead
-      tr
-        th ID
-        th Title
-        th Status
-        th Finish date
-        th Process
-        th Result
-    tbody
-      - @works.each.with_index do |w,i|
+-unless @works.nil?
+  .span9
+    table.table.table-striped.table-hover
+      thead
         tr
-          td = w.id
-          td = w.title
-          td = w.status_work
-          td = w.finish_date
-          td
-            .progress
-              .bar.bar-danger style="width: #{w.get_percent}%;" #{w.get_percent}
-          td = link_to "error result" , work_url(w) ,:class=>"btn btn-danger"
+          th ID
+          th Title
+          th Status
+          th Finish date
+          th Process
+          th Result
+      tbody
+        - @works.each.with_index do |w,i|
+          tr
+            td = w.id
+            td = w.title
+            td = w.status_work
+            td = w.finish_date
+            td
+              .progress
+                .bar.bar-danger style="width: #{w.get_percent}%;" #{w.get_percent}
+            td = link_to "error result" , work_url(w) ,:class=>"btn btn-danger"

@@ -1,31 +1,31 @@
 h1 your finish
 .span2
   = render 'shared/nav_process'
+-unless @work.nil?
+  .span9
+    table.table.table-striped.table-hover
+      thead
+        tr
+          th ID
+          th Title
+          th Status
+          th Finish date
+          th Progress
+          th Result
+      tbody
 
-.span9
-  table.table.table-striped.table-hover
-    thead
-      tr
-        th ID
-        th Title
-        th Status
-        th Finish date
-        th Progress
-        th Result
-    tbody
-
-      tr
-        td = @work.id
-        td = @work.title
-        td = @work.status_work
-        td = @work.finish_date
-        td
-          .progress
-            -a = @work.get_percent
-            - bar = "bar bar-success"
-            - button = "btn"
-            -if @work.status_work == "fail"
-              - bar = "bar bar-danger"
-              - button = "btn btn-danger"
-            div class=(bar) style="width: #{a}%;" #{a}
-        td = link_to "result" , work_url(@work) ,:class=>button
+        tr
+          td = @work.id
+          td = @work.title
+          td = @work.status_work
+          td = @work.finish_date
+          td
+            .progress
+              -a = @work.get_percent
+              - bar = "bar bar-success"
+              - button = "btn"
+              -if @work.status_work == "fail"
+                - bar = "bar bar-danger"
+                - button = "btn btn-danger"
+              div class=(bar) style="width: #{a}%;" #{a}
+          td = link_to "result" , work_url(@work) ,:class=>button
