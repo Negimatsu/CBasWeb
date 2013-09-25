@@ -12,7 +12,7 @@ ul.nav.pull-right.nav-home
     li class=("active" if current_page?(process_finish_path) || current_page?(process_going_path) ||current_page?(process_done_path) ||current_page?(process_fail_path))
       = link_to 'Process' ,process_finish_path
 
-  li
+  li class=("active" if current_page?(contact_path))
     = link_to 'Contact', contact_path
 
   - if user_signed_in?
