@@ -1,8 +1,8 @@
 h1 Program
 .row.in-program
   .span4
-    .quota
-      - unless @l_work.nil?
+    - unless @l_work.nil?
+      .quota
         h3 Your work Quota #{@count}/5
         p Work ID : #{@l_work.id}}
         p Finish lastest : #{@l_work.title if @l_work.title}
