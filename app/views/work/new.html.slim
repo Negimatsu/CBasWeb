@@ -2,10 +2,11 @@ h1 Program
 .row.in-program
   .span4
     .quota
-      h3 Your work Quota #{@count}/5
-      p Work ID : #{@l_work.id}}
-      p Finish lastest : #{@l_work.title if @l_work.title}
-      p Finish date : #{@l_work.finish_date}
+      - unless @l_work.nil?
+        h3 Your work Quota #{@count}/5
+        p Work ID : #{@l_work.id}}
+        p Finish lastest : #{@l_work.title if @l_work.title}
+        p Finish date : #{@l_work.finish_date}
 
   .span6
     h2 Upload
