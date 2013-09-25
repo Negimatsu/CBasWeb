@@ -1,18 +1,23 @@
 h1 Already done!
+.span2
+  = render 'shared/nav_process'
 
-table.table.table-striped.table-hover
-  thead
-    tr
-      th #
-      th title
-      th status
-      th finish date
-      th result
-  tbody
-    - @works.each.with_index do |w,i|
+.span9
+
+
+  table.table.table-striped.table-hover
+    thead
       tr
-        td = w.id
-        td = w.title
-        td = w.status_work
-        td = w.finish_date
-        td = link_to "result" , work_url(w) ,:class=>"btn btn-info"
+        th ID
+        th Title
+        th Status
+        th Finish date
+        th Result
+    tbody
+      - @works.each.with_index do |w,i|
+        tr
+          td = w.id
+          td = w.title
+          td = w.status_work
+          td = w.finish_date
+          td = link_to "result" , work_url(w) ,:class=>"btn btn-success"

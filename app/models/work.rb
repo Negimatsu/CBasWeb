@@ -1,15 +1,54 @@
 class Work < ActiveRecord::Base
-  attr_accessible :title,:description, :filename, :finish_date, :status_work,:is_bacteria, :upload_date
+  attr_accessible :title,:description, :filename, :finish_date, :status_work,:is_bacteria, :upload_date , :pid
   belongs_to :user
   mount_uploader :filename, FastaUploader
 
   validates :title, :presence => true
   validates :filename, :presence => true
-  after_save :run_perl
+  #after_save :run_perl
 
 
   def get_path
     self.filename.current_path.split('/')
+  end
+
+  def get_percent
+    percent = get_full_path+"Percentfile.txt"
+    percent_work = 0
+    File.open(percent, "r").each_line do |line|
+      eline = line.split("|")
+      percent_work = eline[1]
+    end
+    percent_work
+  end
+
+  def get_update_status_work
+    status = "processing"
+    unless is_running?
+      path = get_full_path+"Percentfile.txt"
+      finish = ""
+      time = ""
+      File.open(path, "r").each_line do |line|
+        eline = line.split("|")
+        finish = eline[0]
+        time = eline[2]
+      end
+      if finish == "done!"
+        status = "#{finish}|#{time}"
+      else
+        finish = "fail"
+        status = "#{finish}|#{time}"
+
+      end
+    end
+
+    status
+
+  end
+
+  def get_full_path
+    array_path = get_path[0..-2]
+    array_path*"/"+'/'
   end
 
   def run_perl
@@ -21,9 +60,12 @@ class Work < ActiveRecord::Base
     #perl_cmd = "perl /home/ongkrab/MyProjectCbas/Deverlopment/codePerl/ProjectMain.pl #{filename} #{path} #{self.is_bacteria} 1>#{path}pass.txt 2>#{path}err.txt &"
     perl_cmd = "perl #{ENV['PATH_PERL']} #{filename} #{path} #{self.is_bacteria} 1>#{path}pass.txt 2>#{path}err.txt &"
     p "#####################################################################################"
-    #puts perl_cmd
-    #self.save
+    puts perl_cmd
     system perl_cmd
+
+    unix_cmd = "ps es|tr -s ' ' |cut -d ' ' -f 3,11-12 |grep '#{ENV['PATH_PERL']}' |tail --lines=2|head --lines=1|cut -d ' ' -f 1 |tr -d '\n' > #{path}pid.txt"
+    p "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n#{unix_cmd}"
+    system unix_cmd
   end
 
   def get_url_folder
@@ -49,6 +91,13 @@ class Work < ActiveRecord::Base
 
   def file_dir_or_symlink_exists?(path_to_file)
     File.exist?(path_to_file) || File.symlink?(path_to_file)
+  end
+
+  def is_running?
+    unix_cmd = "ps es|tr -s ' ' | cut -d ' ' -f 3|grep #{self.pid}"
+    run = system unix_cmd
+
+    run
   end
 
 end

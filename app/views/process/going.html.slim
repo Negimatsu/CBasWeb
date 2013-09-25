@@ -1,2 +1,26 @@
-h1 Your Process now
--@works
+h1 Going on
+.span2
+  = render 'shared/nav_process'
+
+.span9
+  table.table.table-striped.table-hover
+    thead
+      tr
+        th ID
+        th Title
+        th Status
+        th Finish date
+        th Progress
+        th Result
+    tbody
+      - @works.each.with_index do |w,i|
+        tr
+          td = w.id
+          td = w.title
+          td = w.status_work
+          td = w.finish_date
+          td
+            .progress.progress-striped.active
+              -a = w.get_percent
+              .bar style="width: #{a}%;" #{a}
+          td = link_to "result" , work_url(w) ,:class=>"btn btn-info"

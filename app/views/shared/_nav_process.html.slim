@@ -1,0 +1,10 @@
+
+ul.nav.nav-tabs.nav-stacked.nav-list id="navbar-documentlist"
+  li class=("active" if current_page?(process_finish_path))
+    a.doctab href="#{process_finish_path}" Finsih Latest
+  li class=("active" if current_page?(process_going_path))
+    a.doctab href="#{process_going_path}" Going on
+  li class=("active" if current_page?(process_done_path))
+    a.doctab href="#{process_done_path}" Already Done
+  li class=("active" if current_page?(process_fail_path))
+    a.doctab href="#{process_fail_path}" Fail
