@@ -1,16 +1,18 @@
 h3.content-user Your Profile
-p.content-usertext
-  | User name    : #{@user.name}
-p.content-usertext
-  | E-mail       : #{@user.email if @user.email}
-p.content-usertext
-  | Firstname    : #{@profile.first_name if @profile.first_name}
--if @profile.last_name
-  p.content-usertext
-    | Lastname   : #{@profile.last_name if @profile.last_name}
--if @profile.occupation
-  p.content-usertext
-    | Occupation : #{@profile.occupation if @profile.occupation}
+
+.content-usertext
+  p
+    | User name    : #{@user.name}
+  p
+    | E-mail       : #{@user.email if @user.email}
+  p
+    | Firstname    : #{@profile.first_name if @profile.first_name}
+  -if @profile.last_name
+    p
+      | Lastname   : #{@profile.last_name if @profile.last_name}
+  -if @profile.occupation
+    p
+      | Occupation : #{@profile.occupation if @profile.occupation}
 
 
 = link_to "Edit Profile" , edit_user_registration_path , :class=>"btn btn-primary"
