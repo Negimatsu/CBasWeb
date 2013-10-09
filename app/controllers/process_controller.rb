@@ -2,7 +2,7 @@ class ProcessController < ApplicationController
   before_filter :update_status
 
   def finish
-    @works = current_user.works.find_all_by_status_work ["finish","fail"]
+    @works = current_user.works.find_all_by_status_work ["done!","fail"]
 
     @work = @works.last
   end
