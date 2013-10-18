@@ -5,6 +5,7 @@ class Work < ActiveRecord::Base
 
   validates :title, :presence => true
   validates :filename, :presence => true
+  validates_inclusion_of :is_bacteria, :in => [true, false]
   #after_save :run_perl
 
 

@@ -12,7 +12,6 @@ gem 'cancan'
 gem 'devise'
 gem 'devise_invitable'
 gem 'figaro'
-gem 'mysql2'
 gem 'rolify'
 gem 'simple_form'
 gem 'slim'
@@ -20,6 +19,8 @@ gem 'carrierwave'
 gem 'rmagick'
 
 group :development do
+  gem 'rspec-rails'
+  gem 'mysql2'
   gem 'mailcatcher'
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :rbx]
@@ -40,9 +41,12 @@ group :development, :test do
   gem 'rspec-rails'
 end
 group :test do
+  gem 'shoulda-matchers'
+  gem 'mysql2'
   gem 'capybara'
   gem 'cucumber-rails', :require=>false
   gem 'database_cleaner'
   gem 'email_spec'
   gem 'launchy'
+  gem 'machinist'
 end
