@@ -34,28 +34,13 @@ class WorkController < ApplicationController
   end
 
   private
-  def save_pid(work)
-    path = work.get_full_path+'pid.txt'
-    pid = 0
-    File.open(path, "r").each_line do |line|
-      pid = line
-    end
-    work.update_attributes(:pid =>pid)
-  end
-
-  def update_status
-    @works = current_user.works.find_all_by_status_work("processing")
-    @works.each do |w|
-      statusD = w.get_update_status_work
-      unless statusD == "processing"
-        status_date = statusD.split("|")
-        date = status_date[1]
-        status = status_date[0]
-        w.update_attributes(:status_work => status,:finish_date=> date)
+    def save_pid(work)
+      path = work.get_full_path+'pid.txt'
+      pid = 0
+      File.open(path, "r").each_line do |line|
+        pid = line
       end
-
+      work.update_attributes(:pid =>pid)
     end
-  end
-
 
 end
