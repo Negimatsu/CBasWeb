@@ -9,6 +9,15 @@ class Work < ActiveRecord::Base
   #after_save :run_perl
 
 
+  def get_is_bacteria
+    if is_bacteria
+      return "Yes"
+    else
+      return "No"
+    end
+  end
+
+
   def get_path
     self.filename.current_path.split('/')
   end

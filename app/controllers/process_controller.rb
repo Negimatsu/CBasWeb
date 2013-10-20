@@ -1,5 +1,5 @@
 class ProcessController < ApplicationController
-  before_filter :update_status
+  before_filter :authenticate_user! , :update_status
 
   def finish
     @works = current_user.works.find_all_by_status_work ["done!","fail"]
