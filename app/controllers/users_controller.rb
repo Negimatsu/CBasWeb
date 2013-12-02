@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @profile = @user.profile
+    UserMailer.try_email(@user).deliver
   end
   
   def update
@@ -31,4 +32,5 @@ class UsersController < ApplicationController
       redirect_to users_path, :notice => "Can't delete yourself."
     end
   end
+
 end
