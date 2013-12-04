@@ -34,22 +34,22 @@ class Work < ActiveRecord::Base
 
   def get_update_status_work
     status = "processing"
-    #unless is_running?
-    path = get_full_path+"Percentfile.txt"
-    finish = ""
-    time = ""
-    File.open(path, "r").each_line do |line|
-      eline = line.split("|")
-      finish = eline[0]
-      time = eline[2]
+    unless is_running?
+      path = get_full_path+"Percentfile.txt"
+      finish = ""
+      time = ""
+      File.open(path, "r").each_line do |line|
+        eline = line.split("|")
+        finish = eline[0]
+        time = eline[2]
+      end
+      if finish == "done!"
+        status = "#{finish}|#{time}"
+      else
+        finish = "fail"
+        status = "#{finish}|#{time}"
+      end
     end
-    if finish == "done!"
-      status = "#{finish}|#{time}"
-    else
-      finish = "fail"
-      status = "#{finish}|#{time}"
-    end
-    #end
 
     status
   end
@@ -106,9 +106,25 @@ class Work < ActiveRecord::Base
   end
 
   def is_running?
-    unix_cmd = "ps es|tr -s ' ' | cut -d ' ' -f 3|grep #{self.pid}"
-    run = system unix_cmd
+    #unix_cmd = "ps es|tr -s ' ' | cut -d ' ' -f 3|grep #{self.pid}"
+    #run = system unix_cmd
 
+    run = false
+    path = get_full_path+"Percentfile.txt"
+    File.open(path, "r").each_line do |line|
+      eline = line.split("|")
+      finish = eline[0]
+    end
+    if finish == "done!"
+      run = true
+    else
+      path = get_full_path+"err.txt"
+      File.open(path, "r").each_line do |line|
+        if link.include? "line"
+          run == true
+        end
+      end
+    end
     run
   end
 
