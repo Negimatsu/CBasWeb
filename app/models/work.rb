@@ -108,7 +108,7 @@ class Work < ActiveRecord::Base
   def is_running?
     #unix_cmd = "ps es|tr -s ' ' | cut -d ' ' -f 3|grep #{self.pid}"
     #run = system unix_cmd
-
+    finish
     run = true
     path = get_full_path+"Percentfile.txt"
     File.open(path, "r").each_line do |line|
