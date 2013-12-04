@@ -125,6 +125,7 @@ class Work < ActiveRecord::Base
         end
       end
     end
+
     run
   end
 
