@@ -13,7 +13,7 @@ class ProcessController < ApplicationController
   end
 
   def done
-    @works = current_user.works.find_all_by_status_work("finish")
+    @works = current_user.works.find_all_by_status_work("done!")
   end
 
   def fail
