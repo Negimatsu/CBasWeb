@@ -34,26 +34,24 @@ class Work < ActiveRecord::Base
 
   def get_update_status_work
     status = "processing"
-    unless is_running?
-      path = get_full_path+"Percentfile.txt"
-      finish = ""
-      time = ""
-      File.open(path, "r").each_line do |line|
-        eline = line.split("|")
-        finish = eline[0]
-        time = eline[2]
-      end
-      if finish == "done!"
-        status = "#{finish}|#{time}"
-      else
-        finish = "fail"
-        status = "#{finish}|#{time}"
-
-      end
+    #unless is_running?
+    path = get_full_path+"Percentfile.txt"
+    finish = ""
+    time = ""
+    File.open(path, "r").each_line do |line|
+      eline = line.split("|")
+      finish = eline[0]
+      time = eline[2]
     end
+    if finish == "done!"
+      status = "#{finish}|#{time}"
+    else
+      finish = "fail"
+      status = "#{finish}|#{time}"
+    end
+    #end
 
     status
-
   end
 
   def get_full_path
