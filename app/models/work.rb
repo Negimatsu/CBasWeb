@@ -109,19 +109,19 @@ class Work < ActiveRecord::Base
     #unix_cmd = "ps es|tr -s ' ' | cut -d ' ' -f 3|grep #{self.pid}"
     #run = system unix_cmd
 
-    run = false
+    run = true
     path = get_full_path+"Percentfile.txt"
     File.open(path, "r").each_line do |line|
       eline = line.split("|")
       finish = eline[0]
     end
     if finish == "done!"
-      run = true
+      run = false
     else
       path = get_full_path+"err.txt"
       File.open(path, "r").each_line do |line|
         if link.include? "line"
-          run == true
+          run == false
         end
       end
     end
