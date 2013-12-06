@@ -71,7 +71,7 @@ class Work < ActiveRecord::Base
     puts perl_cmd
     system perl_cmd
 
-    unix_cmd = "ps es|tr -s ' ' |cut -d ' ' -f 3,11-12 |grep '#{ENV['PATH_PERL']}' |tail --lines=2|head --lines=1|cut -d ' ' -f 1 |tr -d '\n' > #{path}pid.txt"
+    unix_cmd = "ps x|tr -s ' ' |cut -d ' ' -f 1,5-6 |grep '#{ENV['PATH_PERL']}' |tail --lines=2|head --lines=1|cut -d ' ' -f 1 |tr -d '\n' > #{path}pid.txt"
     p "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n#{unix_cmd}"
     system unix_cmd
   end
@@ -106,25 +106,30 @@ class Work < ActiveRecord::Base
   end
 
   def is_running?
-    #unix_cmd = "ps es|tr -s ' ' | cut -d ' ' -f 3|grep #{self.pid}"
-    #run = system unix_cmd
-    finish_w = ""
-    run = true
-    path = get_full_path+"Percentfile.txt"
-    File.open(path, "r").each_line do |line|
-      eline = line.split("|")
-      finish_w = eline[0]
-    end
-    if finish_w == "done!"
-      run = false
-    else
-      path = get_full_path+"err.txt"
-      File.open(path, "r").each_line do |line|
-        if line.include? "line"
-          run == false
-        end
-      end
-    end
+    unix_cmd = "ps x | tr -s ' ' | cut -d ' ' -f 1|grep #{self.pid}"
+    run = system unix_cmd
+    #finish_w = ""
+    #run = true
+    #path = get_full_path+"Percentfile.txt"
+    #if File.exist?(path)
+    #  File.open(path, "r").each_line do |line|
+    #    eline = line.split("|")
+    #    finish_w = eline[0]
+    #  end
+    #  if finish_w == "done!"
+    #    run = false
+    #  else
+    #    path = get_full_path+"err.txt"
+    #    File.open(path, "r").each_line do |line|
+    #      if line.include? "line"
+    #        run == false
+    #      end
+    #    end
+    #  end
+    #
+    #else
+    #  run = true
+    #end
 
     run
   end
