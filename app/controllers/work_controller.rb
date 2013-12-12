@@ -35,7 +35,7 @@ class WorkController < ApplicationController
 
   private
     def save_pid(work)
-      path = work.get_full_path+'pid.txt'
+      path = work.get_full_path + 'pid.txt'
       pid = 0
       File.open(path, "r").each_line do |line|
         pid = line
