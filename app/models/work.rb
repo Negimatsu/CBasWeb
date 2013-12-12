@@ -106,7 +106,7 @@ class Work < ActiveRecord::Base
   end
 
   def is_running?
-    unix_cmd = "ps -ef | tr -s ' ' | cut -d ' ' -f 2|grep #{self.pid}"
+    unix_cmd = "ps -ef | tr -s ' ' | cut -d ' ' -f 2 | grep #{self.pid} && echo 'true' || echo 'false' "
     run = system unix_cmd
 
     run

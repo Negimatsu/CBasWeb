@@ -40,7 +40,7 @@ class WorkController < ApplicationController
       File.open(path, "r").each_line do |line|
         pid = line
       end
-      work.update_attributes(:pid =>pid)
+      work.update_attributes(:pid => pid)
     end
 
 end
