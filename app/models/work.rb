@@ -71,7 +71,7 @@ class Work < ActiveRecord::Base
     puts perl_cmd
     system perl_cmd
 
-    unix_cmd = "ps -ef | tr -s ' ' |grep '#{ENV['PATH_PERL']}' |tail --lines=4 | head --lines=1 | cut -d ' ' -f 2 |tr -d '\n' > #{path}pid.txt"
+    unix_cmd = "ps -ef | tr -s ' ' |grep '#{ENV['PATH_PERL']}' |tail --lines=3 | head --lines=1 | cut -d ' ' -f 2 |tr -d '\n' > #{path}pid.txt"
     p "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n#{unix_cmd}"
     system unix_cmd
   end
