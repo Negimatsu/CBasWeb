@@ -1,0 +1,24 @@
+h3 Work
+.span8
+  table.table.table-condensed
+    thead
+      tr
+        th ID
+        th Title
+        th User_email
+        th Isbacteria
+        th status
+        th
+        th
+    tbody
+      - @works.each do |work|
+        tr
+          td= work.id
+          td= work.title
+          td= work.user.email
+          td= work.is_bacteria
+          td
+            .progress.progress-striped.active
+              -a = work.get_percent if work.get_percent
+              .bar style="width: #{a}%;" #{a}
+

@@ -19,6 +19,8 @@ ul.nav.pull-right.nav-home
     - if current_user.has_role? :admin
       li
         = link_to 'Admin', users_path
+      li
+        = link_to 'List work', list_work_path
     .btn-group
       - if current_page?(user_registration_path)
         = link_to "Profile", profile_url(current_user), :class => 'btn btn-default btn-info active'
