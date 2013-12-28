@@ -17,8 +17,9 @@ h3 Work
           td= work.title
           td= work.user.email
           td= work.is_bacteria
-          td
-            .progress.progress-striped.active
+          td= work.status_work
+
+            /.progress.progress-striped.active
               -a = work.get_percent if work.get_percent
               .bar style="width: #{a}%;" #{a}
 

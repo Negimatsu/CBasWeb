@@ -65,13 +65,12 @@ class Work < ActiveRecord::Base
     filename = get_path[-1]
     makefile_cmd = "mkdir #{path}conBlast"
     system makefile_cmd
-    #perl_cmd = "perl /home/ongkrab/MyProjectCbas/Deverlopment/codePerl/ProjectMain.pl #{filename} #{path} #{self.is_bacteria} 1>#{path}pass.txt 2>#{path}err.txt &"
     perl_cmd = "perl #{ENV['PATH_PERL']} #{filename} #{path} #{self.is_bacteria} 1>#{path}pass.txt 2>#{path}err.txt &"
     p "#####################################################################################"
     puts perl_cmd
     system perl_cmd
 
-    unix_cmd = "ps -ef | tr -s ' ' |grep '#{ENV['PATH_PERL']}' |tail --lines=3 | head --lines=1 | cut -d ' ' -f 2 |tr -d '\n' > #{path}pid.txt"
+    unix_cmd = "ps -ef | tr -s ' ' |grep 'perl #{ENV['PATH_PERL']} #{filename} #{path}' |tail --lines=3 | head --lines=1 | cut -d ' ' -f 2 |tr -d '\n' > #{path}pid.txt"
     p "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n#{unix_cmd}"
     system unix_cmd
   end
