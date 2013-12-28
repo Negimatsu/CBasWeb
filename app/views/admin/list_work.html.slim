@@ -17,9 +17,15 @@ h3 Work
           td= work.title
           td= work.user.email
           td= work.is_bacteria
-          td= work.status_work
-
-            /.progress.progress-striped.active
-              -a = work.get_percent if work.get_percent
-              .bar style="width: #{a}%;" #{a}
-
+          td
+            - if work.percentfile_exist?
+              .progress
+                - a = work.get_percent
+                - bar = "bar bar-success"
+                - button = "btn"
+                -if work.status_work == "fail"
+                  - bar = "bar bar-danger"
+                  - button = "btn btn-danger"
+                - elsif work.status_work == "processing"
+                  - bar = "bar"
+                div class=(bar) style="width: #{a}%;" #{a}

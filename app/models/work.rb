@@ -8,6 +8,7 @@ class Work < ActiveRecord::Base
   validates_inclusion_of :is_bacteria, :in => [true, false]
   #after_save :run_perl
 
+  PERCENT_FILE = "Percentfile.txt"
 
   def get_is_bacteria
     if is_bacteria
@@ -16,7 +17,6 @@ class Work < ActiveRecord::Base
       return "No"
     end
   end
-
 
   def get_path
     self.filename.current_path.split('/')
@@ -30,6 +30,10 @@ class Work < ActiveRecord::Base
       percent_work = eline[1]
     end
     percent_work
+  end
+
+  def percentfile_exist?
+    file_dir_or_symlink_exists? get_full_path + PERCENT_FILE
   end
 
   def get_update_status_work
