@@ -1,22 +1,19 @@
-.document
-h3 Documents
-
-.row
-  .span2
-    .table.tabs-left
-      ul.nav.nav-tabs.nav-stacked.affix.nav-list id="navbar-documentlist"
-        li
-          a.doctab href="#use" How to use
-        li
-          a.doctab href="#work" How to work
-        li
-          a.doctab href="#customize" Customize
+.row-fluid
+  .span8.offset2
+    .document
+    h3 Documents
 
 
+    ul.nav.nav-tabs#navbar-documentlist
+      li.active
+        a href="#use" data-toggle="tab" How to use
+      li
+        a href="#work" data-toggle="tab" How to work
+      li
+        a href="#customize" data-toggle="tab" Customize
 
-  .span9 data-spy="scroll" data-target="#navbar-documentlist"
-    .tab-content.document-content
-      h3 id="use"
+    .tab-content
+      .tab-pane#use.active
         h2 How to use
         p You must use file FASTA format for this program. <br>
         ul.Explanation
@@ -52,12 +49,14 @@ h3 Documents
 
 
 
-      = link_to "Download file fasta example", "/document/example.fasta"
+        = link_to "Download file fasta example", "/document/example.fasta"
 
-      h3.docmargin id="work"
-              |How to work : Prosess Flow
-              = image_tag "flow3.png"
+      .tab-pane#work
+        br
+        h2 How to work : Prosess Flow
+        = image_tag "flow3.png"
 
-      h3.docmargin id="customize"
-        |Customize
-        p.customize You can coutomize another option by choose not bacteria.
+      .tab-pane#customize
+        h2 Customize
+        br
+        p You can coutomize another option by choose not bacteria.

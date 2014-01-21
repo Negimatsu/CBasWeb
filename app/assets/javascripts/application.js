@@ -16,11 +16,9 @@
 //= require bootstrap-scrollspy
 //= require_tree .
 
-//$('#navbar-doctab').scrollspy({
-//    offset: 10
-//});
 
-$('body').scrollspy({
-    target: "navbar-documentlist"
-});
+$('#navbar-documentlist a').click(function (e) {
+    e.preventDefault();
+    $(this).tab('show');
+})
 

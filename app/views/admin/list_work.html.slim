@@ -22,10 +22,8 @@ h3 Work
               .progress
                 - a = work.get_percent
                 - bar = "bar bar-success"
-                - button = "btn"
                 -if work.status_work == "fail"
                   - bar = "bar bar-danger"
-                  - button = "btn btn-danger"
                 - elsif work.status_work == "processing"
                   - bar = "bar"
                 div class=(bar) style="width: #{a}%;" #{a}
