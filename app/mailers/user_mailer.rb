@@ -3,8 +3,8 @@ class UserMailer < ActionMailer::Base
 
   def welcome_email(user)
     @user = user
-    @url  = "http://example.com/login"
-    mail(:to => user.email, :subject => "Welcome to My Awesome Site #{user.name}")
+    @url  = "https://158.108.16.250:11111"
+    mail(:to => user.email, :subject => "Welcome #{user.name} to My cBas Site ")
   end
 
   def try_email(user)
@@ -17,8 +17,11 @@ class UserMailer < ActionMailer::Base
     mail(:to => email, :subject => "tryIt" , cc:"ong_dkrab@hotmail.com")
   end
 
-  def welcome_message(email)
-    mail(:to => email, :subject => "tryIt" , cc:"ong_dkrab@hotmail.com")
+  def finished_work(work)
+    @url =  "https://158.108.16.250:11111"
+    @work = work
+    @user = work.user
+    mail(:to => work.user.email, :subject => "Your #{work.title} has finished")
   end
 
 

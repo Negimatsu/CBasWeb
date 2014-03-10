@@ -1,1 +1,1 @@
-rvm --create use 2.0.0-p0@CbasRvm
+rvm --create use 2.0.0-p0@CbasRvm rvm_trust_rvmrcs_flag=1

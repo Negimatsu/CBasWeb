@@ -17,6 +17,7 @@ gem 'simple_form'
 gem 'slim'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'whenever', :require => false
 
 group :development do
   gem 'rspec-rails'

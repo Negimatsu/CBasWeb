@@ -10,6 +10,20 @@ class Work < ActiveRecord::Base
 
   PERCENT_FILE = "Percentfile.txt"
 
+  def update_status
+    works = Work.find_all_by_status_work("processing")
+    works.each do |w|
+      statusD = w.get_update_status_work
+      unless statusD == "processing"
+        status_date = statusD.split("|")
+        date = status_date[1]
+        status = status_date[0]
+        w.update_attributes(:status_work => status, :finish_date => date)
+        UserMailer.finished_work(w).deliver
+      end
+    end
+  end
+
   def get_is_bacteria
     if is_bacteria
       return "Yes"

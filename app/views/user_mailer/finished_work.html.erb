@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+</head>
+<body>
+<h1>Your work has finish cBas </h1>
+<p>
+  Your work title is <%= @work.title %> which having finished  <br/>
+  Work description is: <%= @work.description %> <br/>
+  Work configuration <%= @work.is_bacteria ? "is" : "isn't" %> bacteria <br/>
+  Work submit at : <%= @work.created_at %> <br>
+  Work finish at : <%= @work.finish_date %><br>
+  The Result is <%= @work.status_work %><br/>
+</p>
+<p>
+  You can verify your work to the site, just follow this link: <%= @url %>.
+</p>
+<p>Thanks for joining and have a great day! with cBas</p>
+</body>
+</html>

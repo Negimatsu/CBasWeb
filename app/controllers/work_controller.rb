@@ -1,5 +1,5 @@
 class WorkController < ApplicationController
-  before_filter :authenticate_user! ,:update_status
+  before_filter :authenticate_user! #,:update_status
 
   def show
     @work = Work.find(params[:id])
