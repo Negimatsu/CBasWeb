@@ -19,5 +19,5 @@
 
 # Learn more: http://github.com/javan/whenever
 every 10.minutes do
-  runner "Work.update_status"
+  runner "ApplicationController.update_status"
 end
