@@ -18,7 +18,7 @@ gem 'slim'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'whenever', :require => false
-gem 'capistrano', '~> 3.1.0'
+#gem 'capistrano', '~> 3.1.0'
 
 group :development do
   gem 'rspec-rails'
