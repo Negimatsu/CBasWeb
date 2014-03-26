@@ -1,28 +1,36 @@
 class UserMailer < ActionMailer::Base
   default :from => "notifications@cbas.com"
 
+
   def welcome_email(user)
+    init_var
     @user = user
-    @url  = "https://158.108.16.250:11111"
     mail(:to => user.email, :subject => "Welcome #{user.name} to My cBas Site ")
   end
 
   def try_email(user)
+    init_var
     @user = user
-    @url  = "http://example.com/login"
+
     mail(:to => user.email, :subject => "send email By rails I try it" ,:cc =>"ong_dkrab@hotmail.com")
   end
 
   def weekly_mail(email)
+    init_var
     mail(:to => email, :subject => "tryIt" , cc:"ong_dkrab@hotmail.com")
   end
 
   def finished_work(work)
-    @url =  "https://158.108.16.250:11111"
+    init_var
     @work = work
     @user = work.user
     mail(:to => work.user.email, :subject => "Your #{work.title} has finished")
   end
+
+  private
+    def init_var
+      @url = "https://158.108.30.99:11111"
+    end
 
 
 end
