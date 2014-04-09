@@ -19,10 +19,10 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'whenever', :require => false
 #gem 'capistrano', '~> 3.1.0'
+gem 'mysql2'
+gem 'rspec-rails'
 
 group :development do
-  gem 'rspec-rails'
-  gem 'mysql2'
   gem 'mailcatcher'
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :rbx]
@@ -39,15 +39,10 @@ group :development do
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
 end
-group :development, :test do
-  gem 'rspec-rails'
-end
-
 
 group :test do
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
-  gem 'mysql2'
   gem 'capybara'
   gem 'cucumber-rails', :require=>false
   gem 'database_cleaner'
