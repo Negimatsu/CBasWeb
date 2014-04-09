@@ -7,9 +7,18 @@
 # makes 'Your_Gmail_Username' available as ENV["GMAIL_USERNAME"]
 # Add application configuration variables here, as shown below.
 #
-GMAIL_USERNAME: Your_Username
-GMAIL_PASSWORD: Your_Password
+
+GMAIL_USERNAME: ong.dkrab@gmail.com
+GMAIL_PASSWORD: wongsapat25
 ADMIN_NAME: First User
-ADMIN_EMAIL: user@example.com
+ADMIN_EMAIL: ongkrab@cbas.com
 ADMIN_PASSWORD: changeme
 ROLES: [admin, user, VIP]
+
+PATH_PERL: /home/ongkrab/MyProjectCbas/Deverlopment/codePerl/ProjectMain.pl
+
+KASET_USERNAME: bxxxxxxx
+KASET_PASSWORD: xxxxxxx
+
+SMTP_SERVER_HOST: nontri.ku.ac.th
+SMTP_SERVER_PORT: 25
