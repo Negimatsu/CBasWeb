@@ -29,7 +29,7 @@ class UserMailer < ActionMailer::Base
 
   private
     def init_var
-      @url = "https://158.108.30.99:11111"
+      @url = "https://158.108.30.200"
     end
 
 
