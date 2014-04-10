@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default :from => "notifications@cbas.com"
+  default :from => "no-reply-notifications@cbas.com"
 
 
   def welcome_email(user)
@@ -31,6 +31,4 @@ class UserMailer < ActionMailer::Base
     def init_var
       @url = "https://158.108.30.200"
     end
-
-
 end
