@@ -29,6 +29,6 @@ class UserMailer < ActionMailer::Base
 
   private
     def init_var
-      @url = "https://158.108.30.200"
+      @url = ENV["SERVER_HOST_NAME"]
     end
 end
