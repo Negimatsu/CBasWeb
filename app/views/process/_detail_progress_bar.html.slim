@@ -1,0 +1,23 @@
+tr
+  td colspan=size
+    .accordion-body.collapse id="collapse#{work.id}" class="#{show}"
+      .accordion-inner
+        .progress-button
+          ul
+            li data-toggle="tooltip" title="Click here for download Blast result" class="#{active? work, 5}"
+              = image_tag "helix.gif" , width: "1", height: "1", style: "margin-top: 5%;"
+              = link_to "" , work_url(work)
+            li class="#{active? work, 35}"
+              = image_tag "species.png", width: "5", height: "5"
+            li class="#{active? work, 45}"
+              = image_tag "pubmlst.png",width: "15", height: "15", style: "margin-top: 25%;"
+            li class="#{active? work, 70}"
+              = image_tag "allele.png", width: "5", height: "5"
+            li class="#{active? work, 80}"
+              = image_tag "combine.png", width: "5", height: "5", style: "margin-top: 5%;"
+            li class="#{active? work, 85}"
+              = image_tag "clustering.png", width: "5", height: "5", style: "margin-top: 5%;"
+            li class="#{active? work, 95}"
+              = image_tag "cladogram.png", width: "5", height: "5", style: "margin-top: 2%;"
+            li class="#{active? work, 100}"
+              = image_tag "burst.png", width: "5", height: "5", style: "margin-top: 1%;"

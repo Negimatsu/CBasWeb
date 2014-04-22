@@ -16,12 +16,13 @@ h1 Going on
       tbody
         - @works.each.with_index do |w,i|
           tr
-            td = w.id
-            td = w.title
-            td = w.status_work
-            td = w.created_at
-            td
+            td.accordion-toggle data-toggle="collapse" data-parent="#accordion2" href="#collapse#{w.id}" = w.id
+            td.accordion-toggle data-toggle="collapse" data-parent="#accordion2" href="#collapse#{w.id}" = w.title
+            td.accordion-toggle data-toggle="collapse" data-parent="#accordion2" href="#collapse#{w.id}" = w.status_work
+            td.accordion-toggle data-toggle="collapse" data-parent="#accordion2" href="#collapse#{w.id}" = w.created_at
+            td.accordion-toggle data-toggle="collapse" data-parent="#accordion2" href="#collapse#{w.id}"
               .progress.progress-striped.active
                 -a = w.get_percent
                 .bar style="width: #{a}%;" #{a}
             td = link_to "result" , work_url(w) ,:class=>"btn btn-info"
+          = render 'detail_progress_bar', work: w, size: 6, show: ""

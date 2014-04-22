@@ -15,11 +15,11 @@ h1 Your finish
       tbody
 
         tr
-          td = @work.id
-          td = @work.title
-          td = @work.status_work
-          td = @work.finish_date
-          td
+          td.accordion-toggle data-toggle="collapse" data-parent="#accordion2" href="#collapse#{@work.id}" = @work.id
+          td.accordion-toggle data-toggle="collapse" data-parent="#accordion2" href="#collapse#{@work.id}" = @work.title
+          td.accordion-toggle data-toggle="collapse" data-parent="#accordion2" href="#collapse#{@work.id}" = @work.status_work
+          td.accordion-toggle data-toggle="collapse" data-parent="#accordion2" href="#collapse#{@work.id}" = @work.finish_date
+          td.accordion-toggle data-toggle="collapse" data-parent="#accordion2" href="#collapse#{@work.id}"
             .progress
               -a = @work.get_percent
               - bar = "bar bar-success"
@@ -29,3 +29,4 @@ h1 Your finish
                 - button = "btn btn-danger"
               div class=(bar) style="width: #{a}%;" #{a}
           td = link_to "result" , work_url(@work) ,:class=>button
+        = render 'detail_progress_bar', work: @work, size: 6, show: "in"

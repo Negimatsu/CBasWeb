@@ -15,11 +15,12 @@ h1 Fail Process
       tbody
         - @works.each.with_index do |w,i|
           tr
-            td = w.id
-            td = w.title
-            td = w.status_work
-            td = w.finish_date
-            td
+            td.accordion-toggle data-toggle="collapse" data-parent="#accordion2" href="#collapse#{w.id}" = w.id
+            td.accordion-toggle data-toggle="collapse" data-parent="#accordion2" href="#collapse#{w.id}" = w.title
+            td.accordion-toggle data-toggle="collapse" data-parent="#accordion2" href="#collapse#{w.id}" = w.status_work
+            td.accordion-toggle data-toggle="collapse" data-parent="#accordion2" href="#collapse#{w.id}" = w.finish_date
+            td.accordion-toggle data-toggle="collapse" data-parent="#accordion2" href="#collapse#{w.id}"
               .progress
                 .bar.bar-danger style="width: #{w.get_percent}%;" #{w.get_percent}
             td = link_to "error result" , work_url(w) ,:class=>"btn btn-danger"
+          = render 'detail_progress_bar', work: w, size: 6, show: ""

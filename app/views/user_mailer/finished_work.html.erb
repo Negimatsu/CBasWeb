@@ -4,7 +4,7 @@
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 </head>
 <body>
-<h1>Your work has finish cBas </h1>
+<h1>You submitted <%= @work.title %> sequences. Submission is complete! </h1>
 <p>
   Your work title is <%= @work.title %> which having finished  <br/>
   Work description is: <%= @work.description %> <br/>
@@ -12,6 +12,11 @@
   Work submit at : <%= @work.created_at %> <br>
   Work finish at : <%= @work.finish_date %><br>
   The Result is <%= @work.status_work %><br/>
+
+  <%- if @work.status_work == "fail" %>
+      There are some problems in your input sequences, please check the format of your input file.<br/>
+  <% end %>
+
 </p>
 <p>
   You can verify your work to the site, just follow this link: <%= @url %>.

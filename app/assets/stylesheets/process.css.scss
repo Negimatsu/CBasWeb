@@ -1,3 +1,82 @@
 // Place all the styles related to the program controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.progress-button{
+  li {
+    text-align: center;
+    vertical-align: center;
+    background: forestgreen;
+    margin: 0 1em;
+    display: inline-block;
+    //color: white;
+    position: relative;
+    width: 7%;
+    height: 0;
+    padding-bottom: 7%;
+    border-radius: 50%;
+    border: 2px solid #f5f5f5;
+    overflow: hidden;
+
+    img {
+      margin-top: 15%;
+      display: block;
+      width: 76%;
+      padding: 12%;
+      height: auto;
+    }
+
+  }
+
+  li::before{
+    content: '';
+    position: absolute;
+    top: .9em;
+    left: -4em;
+    width: 4em;
+    height: .2em;
+    background: dodgerblue;
+    z-index: -1;
+  }
+
+  li:hover {
+    background: lightgreen;
+  }
+
+
+  li:first-child::before {
+    display: none;
+  }
+
+  .active {
+    background: yellow;
+    width: 9%;
+    padding-bottom: 9%;
+  }
+
+  .active ~ li {
+    background: lightblue;
+  }
+
+  .active ~ li::before {
+    background: lightblue;
+  }
+
+  .fail{
+    background: red;
+    width: 9%;
+    padding-bottom: 9%;
+  }
+
+  .fail ~ li {
+    background: lightpink;
+  }
+
+  .complete{
+    background: green;
+  }
+
+
+
+
+}

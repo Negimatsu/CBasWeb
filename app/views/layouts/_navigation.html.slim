@@ -4,9 +4,9 @@ ul.nav.pull-right.nav-home
   li class=("active" if current_page?(root_path))
     = link_to 'Home',root_path
   li class=("active" if current_page?(manual_path))
-    = link_to  'Manual',manual_path
+    = link_to  'Registration',manual_path
   li class=("active" if current_page?(program_path))
-    = link_to 'Program' ,program_path
+    = link_to 'Analysis' ,program_path
 
   - if user_signed_in?
     li class=("active" if current_page?(process_finish_path) || current_page?(process_going_path) ||current_page?(process_done_path) ||current_page?(process_fail_path))

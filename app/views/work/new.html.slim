@@ -1,4 +1,4 @@
-h1 Program
+h1 Analysis
 .row.in-program
   .span4
     - unless @l_work.nil?
@@ -9,8 +9,9 @@ h1 Program
         p Finish date : #{@l_work.finish_date}
 
   .span6
-    h2 Upload
+    h2 Upload file
     - if @count < 5
+      p Input sequences have to be in fasta format and the name of each sequence has to ….
       = simple_form_for @work ,url: {action: "create"} ,:html => {:multipart => true} do |f|
         = f.error_notification
         = f.input :title ,:required =>true

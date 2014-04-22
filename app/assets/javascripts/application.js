@@ -22,3 +22,7 @@ $('#navbar-documentlist a').click(function (e) {
     $(this).tab('show');
 })
 
+$('.collapse').collapse.on('hidden');
+
+
+

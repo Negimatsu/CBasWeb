@@ -3,14 +3,18 @@
     = image_tag "tree_v4.png"
   .span6
     center
-      h1 Welcome to cBas
-    p.content-home Program cBas is tool, which will help you study evolution of bacteria from your nucleotides of bacteria and less error between before process having to use many program on the web or in your computer, So we will make program for single sign on and you can follow your process each procedure.
+      h1 What is cBas?
+    p.content-home cBas (<b>C</b>lassification of <b>Ba</b>cteria from <b>S</b>train) is an integrated tool that combine all processes necessary for multilocus
+                   sequence typing (MLST) analysis. This program starts analyzing the input sequences by (1)
+                   identify sequence by blast, (2) assign allele to the sequences, (3) combine alleles to generate
+                   sequence types, (4) analyze sequence types by clustering method, and (5) present the result.
+    p.content-home The bacterial species and function of each sequence will be determined by comparing the
+                   input sequence to the reference genome sequence database using blastn analysis. The allele
+                   of each sequence will be assigned by comparing the sequence to the MLST database
+                   (website address), and then the identified alleles will be combined to generate the sequence
+                   types of each bacterium. The sequence type obtained from this program will be compared
+                   to the sequence types recorded in the MLST database to define strains of known bacteria.
+                   BURST and Neighbor-joining algorithm were applied to cluster the sequence types, and
+                   then the cluster analysis result will be presented as a network or a phylogram.
     br
     = link_to "How to", manual_path, :class => 'btn btn-info btn-large'
-
-
-
-
-
-
-
