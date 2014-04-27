@@ -75,10 +75,18 @@
 
     h4 Allelic Profile
     -if @work.file_dir_or_symlink_exists? @work.get_full_path+'allelicProfile.txt'
-      | Download :
-      = link_to "Allelic profile", @work.get_allelic
+      | Download Allelic profile for User :
+      = link_to "  Allelic profile for User", @work.get_allelic_user if @work.file_dir_or_symlink_exists? @work.get_full_path+'AllelicProfileForUser.txt'
+      br
+      | Download for use phylip:
+      = link_to "  Allelic profile", @work.get_allelic
+      br
+
     -else
       p Not have allelic Profile
+    -if @work.file_dir_or_symlink_exists? @work.get_full_path+'errorAllelic.txt'
+      | Download cut off allelic:
+      = link_to "  Allelic profile cut off", @work.get_allelic_error
     br
     h4 Error file
 

@@ -115,6 +115,14 @@ class Work < ActiveRecord::Base
     get_url_folder+'allelicProfile.txt'
   end
 
+  def get_allelic_error
+    get_url_folder+'errorAllelic.txt'
+  end
+
+  def get_allelic_user
+    get_url_folder+'AllelicProfileForUser.txt'
+  end
+
   def get_error_file
     get_url_folder+'err.txt'
   end
