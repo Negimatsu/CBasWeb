@@ -4,7 +4,9 @@ tr
       .accordion-inner
         .progress-button
           ul
-            li data-toggle="tooltip" title="Click here for download Blast result" class="#{active? work, 5}"
+            li class="#{active? work, 5}"
+              = image_tag "check_format.png", width: "5", height: "5", style: "margin-top: 5%;"
+            li data-toggle="tooltip" title="Click here for download Blast result" class="#{active? work, 1}"
               = image_tag "helix.gif" , width: "1", height: "1", style: "margin-top: 5%;"
               = link_to "" , work_url(work)
             li class="#{active? work, 35}"
